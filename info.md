@@ -6,7 +6,6 @@
 
 ### Social Links
 * [Twitter](https://twitter.com/owaspnagpur)
-* [Meetup.com](https://www.meetup.com/OWASP-Nagpur-Chapter/)
 * [SlideShare](https://www.slideshare.net/OWASPNagpur)
 
 
