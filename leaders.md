@@ -1,7 +1,7 @@
 ### Leaders
 
-* [Vicky Patmase](mailto:vicky.patmase@owasp.org)
-* [Parimal Aglawe](mailto:parimal.aglawe@owasp.org)
+* [Aishwary Gathe](mailto:aishwary.gathe@owasp.org)
+* [Parth Thakre](mailto:parth.thakre@owasp.org)
   
 
 
