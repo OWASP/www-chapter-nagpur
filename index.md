@@ -13,10 +13,13 @@ postal-code: 440001
 ---
 
 <center>
-  <a href="https://groups.google.com/a/owasp.org/forum/embed/?place=forum/nagpur-chapter">
-    <img src="assets/images/OWASP_Nagpur_BannerF.png" style="max-width: 100%; height: auto;" alt="OWASP Nagpur"/>
-  </a>
+  <div style="max-width: 420px; margin: 1rem auto;">
+    <a href="https://groups.google.com/a/owasp.org/forum/embed/?place=forum/nagpur-chapter">
+      <img src="assets/images/OWASP_Nagpur_BannerF.png" style="width: 100%; height: auto; border-radius: 8px;" alt="OWASP Nagpur"/>
+    </a>
+  </div>
 </center>
+
 
 ## Welcome
 
