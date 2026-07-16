@@ -4,7 +4,7 @@ title: Speakers
 displaytext: Speakers / CFP
 layout: null
 tab: true
-order: 1
+order: 2
 tags: nagpur
 
 ---
