@@ -9,6 +9,14 @@ tags: nagpur
 
 ---
 
+<!--
+  Sponsors and partners are managed in: assets/js/nagpur-data.js
+  Edit NAGPUR_SPONSORS and NAGPUR_PARTNERS in that file.
+  Changes automatically reflect here AND on the main page.
+-->
+
+<script src="assets/js/nagpur-data.js"></script>
+
 ## Sponsors
 
 OWASP Nagpur is a free, community-run chapter. Our sponsors help make events possible by providing venues, resources, and support. We are grateful for their continued partnership.
@@ -18,6 +26,29 @@ If your organisation is interested in sponsoring the OWASP Nagpur Chapter, pleas
 ---
 
 ### Local Sponsors
+
+<div id="sponsors-grid"></div>
+
+---
+
+### Community Partners
+
+We collaborate with local colleges and universities to bring application security awareness to students and academic communities in Nagpur.
+
+<div id="partners-grid"></div>
+
+<p id="partners-cta" style="font-size: 0.82rem; color: #999; margin-top: 0.5rem; display:none;">
+  Are you a college, university, or student group interested in partnering with OWASP Nagpur?
+  Write to us at <a href="mailto:aishwary.gathe@owasp.org" style="color: #004a97;">aishwary.gathe@owasp.org</a>.
+</p>
+
+---
+
+<div style="padding-top: 1.2rem; font-size: 0.88rem; color: #555;">
+  <strong>Become a Sponsor</strong><br/>
+  OWASP Nagpur welcomes organisations that share our commitment to software security. Sponsors receive recognition on this page and the main chapter page, mentions at chapter events, and the opportunity to connect with the local security community.
+  Contact us at <a href="mailto:aishwary.gathe@owasp.org" style="color: #004a97;">aishwary.gathe@owasp.org</a> to discuss sponsorship options.
+</div>
 
 <style>
   .sponsor-grid {
@@ -34,9 +65,7 @@ If your organisation is interested in sponsoring the OWASP Nagpur Chapter, pleas
     gap: 0.75rem;
     text-align: center;
   }
-  .sponsor-item a {
-    display: block;
-  }
+  .sponsor-item a { display: block; }
   .sponsor-item img {
     max-height: 64px;
     max-width: 180px;
@@ -45,120 +74,59 @@ If your organisation is interested in sponsoring the OWASP Nagpur Chapter, pleas
     filter: grayscale(20%);
     transition: filter 0.2s ease;
   }
-  .sponsor-item img:hover {
-    filter: grayscale(0%);
-  }
-  .sponsor-name {
-    font-size: 0.82rem;
-    color: #555;
-  }
-  .sponsor-role {
-    font-size: 0.75rem;
-    color: #999;
-    margin-top: -0.4rem;
-  }
+  .sponsor-item img:hover { filter: grayscale(0%); }
+  .sponsor-name { font-size: 0.82rem; color: #555; }
+  .sponsor-role { font-size: 0.75rem; color: #999; margin-top: -0.4rem; }
   .partner-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     gap: 1.5rem;
-    margin: 1.5rem 0 2rem 0;
+    margin: 1.5rem 0 1rem 0;
   }
   .partner-item {
     border: 1px solid #e8e8e8;
     padding: 1.2rem 1.4rem;
   }
-  .partner-item h4 {
-    font-size: 0.92rem;
-    margin: 0 0 0.3rem 0;
-    color: #1a1a1a;
-  }
-  .partner-item p {
-    font-size: 0.8rem;
-    color: #777;
-    margin: 0 0 0.6rem 0;
-    line-height: 1.45;
-  }
-  .partner-item a {
-    font-size: 0.8rem;
-    color: #004a97;
-    text-decoration: none;
-    border-bottom: 1px solid transparent;
-  }
-  .partner-item a:hover {
-    border-bottom-color: #004a97;
-  }
-  .partner-logo-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    align-items: center;
-    margin: 1.5rem 0 2rem 0;
-  }
-  .partner-logo-item img {
-    max-height: 48px;
-    max-width: 160px;
-    width: auto;
-    object-fit: contain;
-    filter: grayscale(30%);
-    transition: filter 0.2s ease;
-  }
-  .partner-logo-item img:hover {
-    filter: grayscale(0%);
-  }
-  .become-sponsor {
-    border-top: 1px solid #eee;
-    padding-top: 1.5rem;
-    margin-top: 2rem;
-    font-size: 0.88rem;
-    color: #555;
-  }
+  .partner-item h4 { font-size: 0.92rem; margin: 0 0 0.3rem 0; color: #1a1a1a; }
+  .partner-item p { font-size: 0.8rem; color: #777; margin: 0 0 0.6rem 0; line-height: 1.45; }
+  .partner-item a { font-size: 0.8rem; color: #004a97; text-decoration: none; border-bottom: 1px solid transparent; }
+  .partner-item a:hover { border-bottom-color: #004a97; }
+  .no-sponsors { font-size: 0.88rem; color: #999; }
 </style>
 
-<div class="sponsor-grid">
+<script>
+(function () {
+  // Render sponsors
+  var sg = document.getElementById('sponsors-grid');
+  if (NAGPUR_SPONSORS && NAGPUR_SPONSORS.length > 0) {
+    sg.className = 'sponsor-grid';
+    sg.innerHTML = NAGPUR_SPONSORS.map(function (s) {
+      return '<div class="sponsor-item">'
+        + '<a href="' + s.url + '" target="_blank" rel="noopener">'
+        + '<img src="' + s.logo + '" alt="' + s.name + '" /></a>'
+        + '<span class="sponsor-name">' + s.name + '</span>'
+        + '<span class="sponsor-role">' + s.role + '</span>'
+        + '</div>';
+    }).join('');
+  } else {
+    sg.innerHTML = '<p class="no-sponsors">No sponsors listed yet. <a href="mailto:aishwary.gathe@owasp.org">Get in touch</a> to become our first sponsor.</p>';
+  }
 
-  <div class="sponsor-item">
-    <a href="https://www.persistent.com/" target="_blank" rel="noopener">
-      <img src="assets/images/persistent_logo.png" alt="Persistent Systems" />
-    </a>
-    <span class="sponsor-name">Persistent Systems</span>
-    <span class="sponsor-role">Venue Sponsor</span>
-  </div>
-
-  <div class="sponsor-item">
-    <a href="https://ctzlab.com/" target="_blank" rel="noopener">
-      <img src="assets/images/ctzlab_logo.png" alt="CTZ Lab" />
-    </a>
-    <span class="sponsor-name">CTZ Lab</span>
-    <span class="sponsor-role">Community Sponsor</span>
-  </div>
-
-</div>
-
----
-
-### Community Partners
-
-We collaborate with local colleges and universities to bring application security awareness to students and academic communities in Nagpur.
-
-<div class="partner-grid">
-
-  <div class="partner-item">
-    <h4>Your College / University</h4>
-    <p>Partner institution — co-hosting events, student outreach, and security awareness programmes.</p>
-    <a href="#" target="_blank">Visit Website</a>
-  </div>
-
-</div>
-
-<p style="font-size: 0.82rem; color: #999; margin-top: -0.5rem;">
-  Are you a college, university, or student group interested in partnering with OWASP Nagpur? Write to us at
-  <a href="mailto:aishwary.gathe@owasp.org" style="color: #004a97;">aishwary.gathe@owasp.org</a>.
-</p>
-
----
-
-<div class="become-sponsor">
-  <strong>Become a Sponsor</strong><br/>
-  OWASP Nagpur welcomes organisations that share our commitment to software security. Sponsors receive recognition on this page, mentions at chapter events, and the opportunity to connect with the local security community.
-  Contact us at <a href="mailto:aishwary.gathe@owasp.org" style="color: #004a97;">aishwary.gathe@owasp.org</a> to discuss sponsorship options.
-</div>
+  // Render community partners
+  var pg = document.getElementById('partners-grid');
+  var cta = document.getElementById('partners-cta');
+  if (NAGPUR_PARTNERS && NAGPUR_PARTNERS.length > 0) {
+    pg.className = 'partner-grid';
+    pg.innerHTML = NAGPUR_PARTNERS.map(function (p) {
+      return '<div class="partner-item">'
+        + '<h4>' + p.name + '</h4>'
+        + (p.description ? '<p>' + p.description + '</p>' : '')
+        + (p.url ? '<a href="' + p.url + '" target="_blank" rel="noopener">Visit Website</a>' : '')
+        + '</div>';
+    }).join('');
+  } else {
+    pg.innerHTML = '<p class="no-sponsors">No community partners listed yet. Colleges and universities are welcome to partner with us.</p>';
+    cta.style.display = 'block';
+  }
+})();
+</script>
