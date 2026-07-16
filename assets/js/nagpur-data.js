@@ -23,14 +23,23 @@
 
 var NAGPUR_EVENTS = [
 
-  // ── 2026 ─────────────────────────────────────────────────
+
   {
-    title:       "OWASP Connect July — Monthly Meetup",
-    date:        "2026-07-27",
-    format:      "In-person",
-    description: "Monthly community session on application security. Topic to be announced. Reach out to speak at this meetup.",
-    links: { meetup: "", slides: "", recording: "" }
-  },
+  title:   "OWASP Connect August — Monthly Meetup",
+  date:    "2026-08-24",
+  format:  "Virtual",
+  description: "...",
+  links: { meetup: "", slides: "", recording: "" }
+},
+
+  // ── 2026 ─────────────────────────────────────────────────
+  // {
+  //   title:       "OWASP Connect July — Monthly Meetup",
+  //   date:        "2026-07-27",
+  //   format:      "In-person",
+  //   description: "Monthly community session on application security. Topic to be announced. Reach out to speak at this meetup.",
+  //   links: { meetup: "", slides: "", recording: "" }
+  // },
   {
     title:       "OWASP Connect June — Monthly Meetup",
     date:        "2026-06-13",
