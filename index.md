@@ -27,13 +27,13 @@ Welcome to the **OWASP Nagpur Chapter** — your local hub for application secur
 
 We bring together security professionals, developers, researchers, and students to share knowledge, discuss the latest threats, and build a stronger, more secure software ecosystem. All our events are **free and open to everyone**.
 
-📌 **Follow us on [LinkedIn](https://www.linkedin.com/company/owaspngp/)** to stay updated on upcoming events, security insights, and community news.
+Follow us on [LinkedIn](https://www.linkedin.com/company/owaspngp/) to stay updated on upcoming events, security insights, and community news.
 
 ## About Us
 
 The OWASP Nagpur Chapter has been actively running local meetups, workshops, and collaborative sessions focused on application security. We cover topics ranging from OWASP Top 10 vulnerabilities, web and mobile security, DevSecOps, cloud security, and much more.
 
-🎤 **Interested in speaking?** We welcome talks on OWASP projects, independent security research, or any related software security topic. Head over to the **Speakers** tab to learn how to submit your talk.
+Interested in speaking? We welcome talks on OWASP projects, independent security research, or any related software security topic. Head over to the **Speakers** tab to learn how to submit your talk.
 
 ## Participation
 
