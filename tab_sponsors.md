@@ -10,12 +10,10 @@ tags: nagpur
 ---
 
 <!--
-  Sponsors and partners are managed in: assets/js/nagpur-data.js
-  Edit NAGPUR_SPONSORS and NAGPUR_PARTNERS in that file.
-  Changes automatically reflect here AND on the main page.
+  To add sponsors: edit _data/nagpur_sponsors.yml
+  To add partners: edit _data/nagpur_partners.yml
+  Changes reflect here AND on the main page after git push.
 -->
-
-<script src="assets/js/nagpur-data.js"></script>
 
 ## Sponsors
 
@@ -37,11 +35,6 @@ We collaborate with local colleges and universities to bring application securit
 
 <div id="partners-grid"></div>
 
-<p id="partners-cta" style="font-size: 0.82rem; color: #999; margin-top: 0.5rem; display:none;">
-  Are you a college, university, or student group interested in partnering with OWASP Nagpur?
-  Write to us at <a href="mailto:aishwary.gathe@owasp.org" style="color: #004a97;">aishwary.gathe@owasp.org</a>.
-</p>
-
 ---
 
 <div style="padding-top: 1.2rem; font-size: 0.88rem; color: #555;">
@@ -58,21 +51,11 @@ We collaborate with local colleges and universities to bring application securit
     margin: 1.5rem 0 2.5rem 0;
     align-items: center;
   }
-  .sponsor-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.75rem;
-    text-align: center;
-  }
+  .sponsor-item { display: flex; flex-direction: column; align-items: center; gap: 0.75rem; text-align: center; }
   .sponsor-item a { display: block; }
   .sponsor-item img {
-    max-height: 64px;
-    max-width: 180px;
-    width: auto;
-    object-fit: contain;
-    filter: grayscale(20%);
-    transition: filter 0.2s ease;
+    max-height: 64px; max-width: 180px; width: auto; object-fit: contain;
+    filter: grayscale(20%); transition: filter 0.2s ease;
   }
   .sponsor-item img:hover { filter: grayscale(0%); }
   .sponsor-name { font-size: 0.82rem; color: #555; }
@@ -83,18 +66,19 @@ We collaborate with local colleges and universities to bring application securit
     gap: 1.5rem;
     margin: 1.5rem 0 1rem 0;
   }
-  .partner-item {
-    border: 1px solid #e8e8e8;
-    padding: 1.2rem 1.4rem;
-  }
+  .partner-item { border: 1px solid #e8e8e8; padding: 1.2rem 1.4rem; }
   .partner-item h4 { font-size: 0.92rem; margin: 0 0 0.3rem 0; color: #1a1a1a; }
   .partner-item p { font-size: 0.8rem; color: #777; margin: 0 0 0.6rem 0; line-height: 1.45; }
   .partner-item a { font-size: 0.8rem; color: #004a97; text-decoration: none; border-bottom: 1px solid transparent; }
   .partner-item a:hover { border-bottom-color: #004a97; }
-  .no-sponsors { font-size: 0.88rem; color: #999; }
+  .no-data { font-size: 0.88rem; color: #999; padding: 0.4rem 0; }
 </style>
 
 <script>
+// Data injected by Jekyll at build time from _data/nagpur_sponsors.yml
+var NAGPUR_SPONSORS = {{ site.data.nagpur_sponsors | jsonify }};
+var NAGPUR_PARTNERS = {{ site.data.nagpur_partners | jsonify }};
+
 (function () {
   // Render sponsors
   var sg = document.getElementById('sponsors-grid');
@@ -109,12 +93,11 @@ We collaborate with local colleges and universities to bring application securit
         + '</div>';
     }).join('');
   } else {
-    sg.innerHTML = '<p class="no-sponsors">No sponsors listed yet. <a href="mailto:aishwary.gathe@owasp.org">Get in touch</a> to become our first sponsor.</p>';
+    sg.innerHTML = '<p class="no-data">No sponsors listed yet. <a href="mailto:aishwary.gathe@owasp.org">Get in touch</a> to become our first sponsor.</p>';
   }
 
-  // Render community partners
+  // Render partners
   var pg = document.getElementById('partners-grid');
-  var cta = document.getElementById('partners-cta');
   if (NAGPUR_PARTNERS && NAGPUR_PARTNERS.length > 0) {
     pg.className = 'partner-grid';
     pg.innerHTML = NAGPUR_PARTNERS.map(function (p) {
@@ -125,8 +108,7 @@ We collaborate with local colleges and universities to bring application securit
         + '</div>';
     }).join('');
   } else {
-    pg.innerHTML = '<p class="no-sponsors">No community partners listed yet. Colleges and universities are welcome to partner with us.</p>';
-    cta.style.display = 'block';
+    pg.innerHTML = '<p class="no-data">No community partners listed yet. Colleges and universities are welcome to partner with us — write to <a href="mailto:aishwary.gathe@owasp.org">aishwary.gathe@owasp.org</a>.</p>';
   }
 })();
 </script>

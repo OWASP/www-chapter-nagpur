@@ -48,8 +48,6 @@ Everyone is welcome and encouraged to participate in our [Projects](/projects), 
 
 All our chapter meetings are free to attend.
 
-<script src="assets/js/nagpur-data.js"></script>
-
 <div id="home-upcoming"></div>
 
 <style>
@@ -109,6 +107,10 @@ All our chapter meetings are free to attend.
 </style>
 
 <script>
+// Data injected by Jekyll at build time from _data/ YAML files
+var NAGPUR_EVENTS   = {{ site.data.nagpur_events   | jsonify }};
+var NAGPUR_SPONSORS = {{ site.data.nagpur_sponsors | jsonify }};
+
 (function () {
   var today = new Date();
   today.setHours(0, 0, 0, 0);
@@ -122,13 +124,13 @@ All our chapter meetings are free to attend.
     return d.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
   }
 
-  var el = document.getElementById('home-upcoming');
+  var el   = document.getElementById('home-upcoming');
   var html = '';
 
   if (upcoming.length > 0) {
     upcoming.forEach(function (e) {
-      var meetupLink = (e.links && e.links.meetup)
-        ? ' &nbsp;&middot;&nbsp; <a class="home-ev-link" href="' + e.links.meetup + '" target="_blank">Register on Meetup</a>'
+      var meetupLink = e.meetup
+        ? ' &nbsp;&middot;&nbsp; <a class="home-ev-link" href="' + e.meetup + '" target="_blank">Register on Meetup</a>'
         : '';
       html += '<div class="home-ev-row">'
         + '<div class="home-ev-date">' + fmtDate(e.date) + '</div>'
@@ -156,4 +158,3 @@ All our chapter meetings are free to attend.
   el.innerHTML = html;
 })();
 </script>
-

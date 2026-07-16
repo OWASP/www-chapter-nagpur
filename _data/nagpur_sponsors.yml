@@ -1,0 +1,17 @@
+# OWASP Nagpur — Sponsors Data
+# ============================================================
+# HOW TO ADD A SPONSOR:
+#   1. Copy a block below and fill in the details
+#   2. logo: path relative to the chapter root, e.g. assets/images/logo.png
+#   3. Commit and push — reflects on Sponsors tab AND main page
+# ============================================================
+
+- name: "Persistent Systems"
+  logo: "assets/images/persistent_logo.png"
+  url: "https://www.persistent.com/"
+  role: "Venue Sponsor"
+
+- name: "CTZ Lab"
+  logo: "assets/images/ctzlab_logo.png"
+  url: "https://ctzlab.com/"
+  role: "Community Sponsor"

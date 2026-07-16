@@ -10,12 +10,9 @@ tags: nagpur
 ---
 
 <!--
-  Events are managed in: assets/js/nagpur-data.js
-  Edit the NAGPUR_EVENTS array in that file to add or update events.
-  Changes automatically reflect here AND on the main page.
+  To add or edit events: open _data/nagpur_events.yml
+  Changes reflect here AND on the main page after git push.
 -->
-
-<script src="assets/js/nagpur-data.js"></script>
 
 <div id="events-wrap">
   <div id="upcoming-section" style="margin-bottom: 2rem;">
@@ -63,6 +60,9 @@ tags: nagpur
 </style>
 
 <script>
+// Data injected by Jekyll at build time from _data/nagpur_events.yml
+var NAGPUR_EVENTS = {{ site.data.nagpur_events | jsonify }};
+
 (function () {
   var today = new Date();
   today.setHours(0, 0, 0, 0);
@@ -80,12 +80,12 @@ tags: nagpur
   }
   function fmtYear(str) { return str.substring(0, 4); }
 
-  function buildLinks(links) {
+  function buildLinks(e) {
     var parts = [];
-    if (links.meetup)    parts.push('<a href="' + links.meetup    + '" target="_blank">Meetup</a>');
-    if (links.recording) parts.push('<a href="' + links.recording + '" target="_blank">Recording</a>');
-    if (links.slides)    parts.push('<a href="' + links.slides    + '" target="_blank">Slides</a>');
-    if (links.details)   parts.push('<a href="' + links.details   + '" target="_blank">Details</a>');
+    if (e.meetup)    parts.push('<a href="' + e.meetup    + '" target="_blank">Meetup</a>');
+    if (e.recording) parts.push('<a href="' + e.recording + '" target="_blank">Recording</a>');
+    if (e.slides)    parts.push('<a href="' + e.slides    + '" target="_blank">Slides</a>');
+    if (e.details)   parts.push('<a href="' + e.details   + '" target="_blank">Details</a>');
     return parts.length ? '<div class="ev-links">' + parts.join('') + '</div>' : '';
   }
 
@@ -97,7 +97,7 @@ tags: nagpur
       + '<div class="ev-title">' + e.title + label + '</div>'
       + '<div class="ev-meta">' + e.format + '</div>'
       + (e.description ? '<div class="ev-desc">' + e.description + '</div>' : '')
-      + buildLinks(e.links)
+      + buildLinks(e)
       + '</div></div>';
   }
 

@@ -1,0 +1,11 @@
+# OWASP Nagpur — Community Partners Data
+# ============================================================
+# HOW TO ADD A PARTNER:
+#   1. Copy the example block, uncomment it, fill in details
+#   2. Commit and push — reflects on the Sponsors tab
+# ============================================================
+
+# Example:
+# - name: "College / University Name"
+#   description: "Brief description of the partnership."
+#   url: "https://college-website.edu/"
